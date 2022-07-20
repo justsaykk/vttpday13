@@ -2,13 +2,13 @@ package day13workshop.day13wrkshop.models;
 
 import java.util.UUID;
 
-public class ContactModel {
+public class Contact {
     private final String id;
     private String name;
     private String email;
     private String phone;
 
-    public ContactModel() {
+    public Contact() {
         this.id = UUID.randomUUID().toString().substring(0, 8);
     }
 

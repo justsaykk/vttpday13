@@ -10,6 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import day13workshop.day13wrkshop.services.DatabaseService;
 
+/* 
+ * maven command: ./mvnw clean spring-boot:run -Dspring-boot.run.arguments="--dataDir=/Users/kaikeinwoo/Desktop/VTTP/projects/day13/dump"  
+*/
+
 @SpringBootApplication
 public class Day13wrkshopApplication implements ApplicationRunner {
 
@@ -31,12 +35,4 @@ public class Day13wrkshopApplication implements ApplicationRunner {
 			System.exit(-1);
 		}
 	}
-
-	// public Boolean save() {
-	// 	// Code here
-	// }
-
-	// public void read(String fileId) {
-	// 	// Code here
-	// }
 }

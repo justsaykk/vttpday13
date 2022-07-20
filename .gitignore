@@ -79,4 +79,6 @@ buildNumber.properties
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
+# Data Dump folder
+/dump
 # End of https://www.toptal.com/developers/gitignore/api/maven,java,macos
