@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
@@ -43,15 +47,17 @@ public class DatabaseService {
     public Contact read(String fileId) {
 
         try {
-            File f = new File(this.dataDir, fileId);
             Contact contact = new Contact();
-            Scanner myScanner = new Scanner(f);
+            Path filePath = new File(this.dataDir, fileId).toPath();
+            Charset cs = Charset.forName("utf-8");
+            List<String> stringVal = Files.readAllLines(filePath, cs);
 
-            while (myScanner.hasNextLine()) {
-                System.out.println(myScanner.nextLine());
-            }
-            myScanner.close();
+            // stringVal.get(0) is the fileId. Not useful in our case
+            contact.setName(stringVal.get(1));
+            contact.setEmail(stringVal.get(2));
+            contact.setPhone(stringVal.get(3));
 
+            // Pass the contact object back to the contact controller for further processing
             return contact;
 
         } catch (Exception e) {
