@@ -30,9 +30,14 @@ public class Day13wrkshopApplication implements ApplicationRunner {
 		if (args.containsOption("dataDir")) {
 			final String dataDir = args.getOptionValues("dataDir").get(0);
 			dbSvc.setDataDir(new File(dataDir));
+
+			if (!dbSvc.isDataDirValid()) {
+				System.out.println("Directory does not exist/is not a directory or not writable");
+				System.exit(-1);
+			}
+
 		} else {
-			System.out.printf("Insufficient arguments provided");
-			System.exit(-1);
+			dbSvc.setDataDir(new File("./data"));
 		}
 	}
 }

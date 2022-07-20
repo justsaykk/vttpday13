@@ -8,7 +8,6 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Scanner;
 
 import org.springframework.stereotype.Service;
 
@@ -25,6 +24,10 @@ public class DatabaseService {
     public void setDataDir(File file) {
         this.dataDir = file;
     };
+
+    public boolean isDataDirValid() {
+        return dataDir.exists() && dataDir.isDirectory() && dataDir.canWrite();
+    }
 
     public Boolean save(Contact contact) {
         File f = new File(this.dataDir, contact.getId());
