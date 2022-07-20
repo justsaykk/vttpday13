@@ -1,6 +1,7 @@
 # HTML MIME Types
 When using the annotation, we will see something like this: <br/>
-```
+
+```java
 @PostMapping(consumes = "application/x-www-form-urlencoded", produces = "text/html")
     public String postContact(@RequestBody MultiValueMap<String, String> form, Model model) {
 
